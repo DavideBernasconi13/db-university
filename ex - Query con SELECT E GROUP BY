@@ -11,7 +11,7 @@ SELECT * FROM `courses`
 WHERE `cfu` > 10;
 
 3. Selezionare tutti gli studenti che hanno più di 30 anni
-SELECT COUNT(`id`) AS `n_students`
+SELECT *
 FROM `students` 
 WHERE YEAR(CURRENT_DATE) - YEAR(`date_of_birth`) > 30;
 
@@ -49,6 +49,10 @@ QUERY con GROUP_BY
 #########################################################
 
 1. Contare quanti iscritti ci sono stati ogni anno
+SELECT YEAR(`enrolment_date`) AS `anno`, COUNT(`id`) AS `students` 
+FROM `students`
+GROUP BY YEAR(`anno`);
+
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 3. Calcolare la media dei voti di ogni appello d'esame
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
